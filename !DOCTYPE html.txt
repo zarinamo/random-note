@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zarinamoの過去記事</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0 0 20px 0;
+      font-size: 28px;
+      color: #111;
+    }
+    button {
+      background-color: #007aff;
+      color: #fff;
+      font-size: 16px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s all;
+    }
+    button:hover {
+      background-color: #005bb5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+  </style>
+  <script>
+    // zarinamoさんの過去記事リンクを追加
+    const articles = [
+      "https://note.com/zarinamo/n/n1a2b3c4d5e",
+      "https://note.com/zarinamo/n/n6f7g8h9i0j",
+      "https://note.com/zarinamo/n/nk1l2m3n4o5"
+      // 他のリンクも追加可能
+    ];
+
+    function openRandomArticle() {
+      const randomIndex = Math.floor(Math.random() * articles.length);
+      const url = articles[randomIndex];
+      window.open(url, "_blank"); // 新しいタブで開く
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>zarinamoの過去記事</h1>
+    <button onclick="openRandomArticle()">ランダム記事を開く</button>
+  </div>
+</body>
+</html>
