@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zarinamoの過去記事</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #111;
+      letter-spacing: 0.03em;
+    }
+    p {
+      color: #555;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #007aff;
+      color: white;
+      font-size: 1.1rem;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background-color: #005bb5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+  <script>
+    async function openRandomNote() {
+      const username = "zarinamo";
+      const url = `https://note.com/${username}/notes`;
+      try {
+        const response = await fetch(url);
+        const text = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const links = [...doc.querySelectorAll('a[href*="/n/"]')]
+          .map(a => a.href)
+          .filter(href => href.includes('note.com'));
+        if (links.length === 0) {
+          alert('記事が見つかりませんでした。');
+          return;
+        }
+        const randomLink = links[Math.floor(Math.random() * links.length)];
+        window.open(randomLink, '_blank');
+      } catch (error) {
+        alert('記事の取得に失敗しました。');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>zarinamoの過去記事</h1>
+  <p>ランダムに1本、zarinamoのnote記事を読む。</p>
+  <button onclick="openRandomNote()">ランダム記事を開く</button>
+  <footer>© 2025 zarinamo</footer>
+</body>
+</html>
